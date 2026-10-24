@@ -1,0 +1,98 @@
+[
+  {
+    "id": "community",
+    "title": "Yhteisellä retkellä",
+    "category": "Lapset ja perheet",
+    "alt": "Lapset ja aikuiset viettävät aikaa yhdessä metsäisellä retkipaikalla.",
+    "width": 1280,
+    "height": 924
+  },
+  {
+    "id": "children",
+    "title": "Yhdessä vapaa-ajalla",
+    "category": "Lapset ja perheet",
+    "alt": "Lapset pelaavat yhdessä olohuoneessa.",
+    "width": 1590,
+    "height": 1193
+  },
+  {
+    "id": "sports",
+    "title": "Liikkumisen iloa",
+    "category": "Liikunta",
+    "alt": "Lapset istuvat värikkäillä liikuntavälineillä liikuntasalissa.",
+    "width": 1599,
+    "height": 799
+  },
+  {
+    "id": "support",
+    "title": "Kohtaamisia arjessa",
+    "category": "Kohtaamiset",
+    "alt": "Kaksi osallistujaa istuu yhteisen pöydän ääressä.",
+    "width": 1024,
+    "height": 768
+  },
+  {
+    "id": "youth",
+    "title": "Läsnä nuorten arjessa",
+    "category": "Nuorisotyö",
+    "alt": "Nuorisotyöntekijät ulkona auringonlaskun aikaan.",
+    "width": 720,
+    "height": 960
+  },
+  {
+    "id": "outdoors",
+    "title": "Yhteinen kesäpäivä",
+    "category": "Lapset ja perheet",
+    "alt": "Ryhmä kokoontuu ulkona puiden ja leikkipaikan lähellä.",
+    "width": 2048,
+    "height": 1536
+  },
+  {
+    "id": "garden",
+    "title": "Hetki yhdessä",
+    "category": "Kohtaamiset",
+    "alt": "Osallistujat kokoontuvat pöydän ääreen kesäisessä pihapiirissä.",
+    "width": 2048,
+    "height": 1434
+  },
+  {
+    "id": "meeting",
+    "title": "Yhteistä tekemistä",
+    "category": "Kohtaamiset",
+    "alt": "Osallistujat kokoontuvat yhteiseen tilaan pöytien ympärille.",
+    "width": 1600,
+    "height": 777
+  },
+  {
+    "id": "food",
+    "title": "Yhteisen pöydän äärellä",
+    "category": "Kohtaamiset",
+    "alt": "Yhteistä ruokailua varten katettu pitkä pöytä.",
+    "width": 597,
+    "height": 800
+  },
+  {
+    "id": "play",
+    "title": "Leikkiä ja liikuntaa",
+    "category": "Liikunta",
+    "alt": "Lapset ja ohjaajat liikuntasalissa leikkivälineiden keskellä.",
+    "width": 1599,
+    "height": 799
+  },
+  {
+    "id": "neighborhood",
+    "title": "Mukana kaupungilla",
+    "category": "Nuorisotyö",
+    "alt": "Nuorisotyöntekijät kävelevät yhdessä kaupungilla.",
+    "width": 886,
+    "height": 1192
+  },
+  {
+    "id": "friends",
+    "title": "Tilaa jokaiselle",
+    "category": "Lapset ja perheet",
+    "alt": "Lapset istuvat vierekkäin ulkona yhteisellä retkellä.",
+    "width": 1280,
+    "height": 640
+  }
+]
