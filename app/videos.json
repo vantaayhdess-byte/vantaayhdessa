@@ -1,0 +1,26 @@
+[
+  {
+    "file": "meeting-01.mp4",
+    "id": "meeting-video-01",
+    "title": "Kesäisiä kohtaamisia",
+    "category": "Kohtaamiset",
+    "description": "Lyhyt video yhteisestä hetkestä tapahtumakatoksen alla.",
+    "type": "video",
+    "poster": "meeting-02",
+    "width": 1024,
+    "height": 576,
+    "duration": "0:05"
+  },
+  {
+    "file": "sports-01.mp4",
+    "id": "sports-video-01",
+    "title": "Palloilua liikuntasalissa",
+    "category": "Liikunta",
+    "description": "Yhteistä palloilua ja liikuntaa sisätilassa.",
+    "type": "video",
+    "poster": "sports-01",
+    "width": 352,
+    "height": 624,
+    "duration": "0:20"
+  }
+]

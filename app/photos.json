@@ -94,5 +94,95 @@
     "alt": "Lapset istuvat vierekkäin ulkona yhteisellä retkellä.",
     "width": 1280,
     "height": 640
+  },
+  {
+    "id": "meeting-01",
+    "title": "Yhteinen kokoontuminen",
+    "category": "Kohtaamiset",
+    "alt": "Osallistujat kokoontuvat saliin yhteisen ohjelman äärelle.",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "neighborhood-01",
+    "title": "Yhdessä iltakävelyllä",
+    "category": "Nuorisotyö",
+    "alt": "Ryhmä liikkuu ulkona pimeään aikaan.",
+    "width": 204,
+    "height": 206
+  },
+  {
+    "id": "sports-01",
+    "title": "Harrastamisen iloa",
+    "category": "Liikunta",
+    "alt": "Lapset kokeilevat liikuntavälineitä yhdessä salissa.",
+    "width": 799,
+    "height": 1599,
+    "fit": "contain"
+  },
+  {
+    "id": "outdoors-01",
+    "title": "Yhteinen hetki nuotiolla",
+    "category": "Lapset ja perheet",
+    "alt": "Lapset ja aikuinen kokoontuvat ulkona tulisijan ympärille.",
+    "width": 799,
+    "height": 799
+  },
+  {
+    "id": "children-01",
+    "title": "Perheiden yhteinen päivä",
+    "category": "Lapset ja perheet",
+    "alt": "Lapset ja aikuiset viettävät yhteistä aikaa sisätilassa.",
+    "width": 540,
+    "height": 960
+  },
+  {
+    "id": "children-02",
+    "title": "Jalkapalloa yhdessä seuraten",
+    "category": "Lapset ja perheet",
+    "alt": "Sisätila, jossa jalkapallo-ottelua näytetään television ruudulla.",
+    "width": 799,
+    "height": 1599
+  },
+  {
+    "id": "youth-01-poster",
+    "title": "Nuorten toiminnan esite — arkisto",
+    "category": "Nuorisotyö",
+    "alt": "Arkistoitu esite tyttöjen toiminnasta. Esitteen aikataulut eivät välttämättä ole enää voimassa.",
+    "width": 1199,
+    "height": 1600,
+    "fit": "contain"
+  },
+  {
+    "id": "outdoors-02",
+    "title": "Pelikentän laidalla",
+    "category": "Liikunta",
+    "alt": "Osallistuja seuraa jalkapallopeliä ulkona nurmikentän reunalla.",
+    "width": 1600,
+    "height": 1556
+  },
+  {
+    "id": "meeting-02",
+    "title": "Kohtaamisia katoksen alla",
+    "category": "Kohtaamiset",
+    "alt": "Osallistujat kokoontuvat kesäisen tapahtumakatoksen alla.",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "id": "meeting-03",
+    "title": "Meidän yhteisömme",
+    "category": "Kohtaamiset",
+    "alt": "Osallistujien ryhmäkuva sisätilassa.",
+    "width": 1125,
+    "height": 891
+  },
+  {
+    "id": "youth-01",
+    "title": "Nuorisotyö lähellä arkea",
+    "category": "Nuorisotyö",
+    "alt": "Yhdistyksen nuorisotyöntekijät yhdessä kauppakeskuksessa.",
+    "width": 1592,
+    "height": 1600
   }
 ]

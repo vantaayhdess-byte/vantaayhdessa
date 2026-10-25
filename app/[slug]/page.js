@@ -1,11 +1,135 @@
-import {notFound} from 'next/navigation';
-import {Header,Footer} from '../components';
-const pages={
-'tietoa-meista':{tag:'MEIDÄN YHTEISÖMME',title:'Vantaa kuuluu meille kaikille.',intro:'Hyvinvoivat perheet ja yhteisöllinen Vantaa — sitä varten olemme olemassa.',sections:[['Tietoa meistä','Vantaa yhdessä ry on vuoden 2018 alussa perustettu poliittisesti ja uskonnollisesti sitoutumaton yhdistys. Edistämme monikulttuurisen kaupungin asukkaiden hyvinvointia ja osallisuutta.'],['Tarkoituksemme','Tuemme maahanmuuttajien kotoutumista suomalaiseen yhteiskuntaan sekä oman kulttuurin ja kielen säilyttämistä. Edistämme kulttuurien välistä yhteistyötä, kohtaamista ja vuorovaikutusta.'],['Arvomme','Yhteisölähtöisyys ja yhdenvertaisuus ohjaavat toimintaamme. Tuemme erityisesti lapsiperheiden ja nuorten osallisuutta uudessa kotimaassa.']]},
-'toiminta':{tag:'YHDESSÄ TEKEMISEN ILO',title:'Löydä oma tapasi osallistua.',intro:'Kohtaamisia, liikuntaa ja tukea arkeen. Toimintamme on tarkoitettu eri-ikäisille vantaalaisille.',sections:[['Toimintakeskus','Toiminta- ja kohtaamiskeskuksemme sijaitsee Myyräncolon kulttuuritalon toisessa kerroksessa Länsi-Vantaalla. Se on vapaa-ajan olohuone ja kohtaamispaikka kaikenikäisille. Järjestämme tapahtumia ja työpajoja sekä tarjoamme monikielistä ohjausta ja neuvontaa.'],['Jalkautuva nuorisotyö','Olemme turvallisia, läsnä olevia aikuisia nuorten arjessa. Tavoitteenamme on ehkäistä syrjäytymistä ja häiriökäyttäytymistä. Teemme yhteistyötä alueellisen nuorisotyön, kirjastojen, kauppakeskusten ja muiden järjestöjen kanssa.'],['Matalan kynnyksen harrastustoiminta','Mahdollistamme lapsille ja nuorille maksutonta harrastamista. Tarjoamme myös aikuisten harrasteliikuntaa, kuten naisten kuntosaliryhmiä ja miesten palloilukerhoja. Ota yhteyttä ja kysy tämänhetkisistä ryhmistä.']]},
-'toimintakalenteri':{tag:'TERVETULOA MUKAAN',title:'Yhteistä tekemistä viikkoon.',intro:'Alla on vanhalta sivustolta siirretty ohjelma. Ajat voivat olla muuttuneet — varmista ajantasainen aikataulu yhdistykseltä ennen osallistumista.',sections:[['Toimintakeskus','Jönsaksentie 6 A, 2. kerros, 01600 Vantaa. Vanhan sivuston aukioloajat: ma–pe 16.30–22, la–su 14–22.'],['Lasten ja nuorten liikunta','Hakunila, Lehtikuusen koulu: pe 21–22, la 18–19, su 19–21. Länsimäen koulu: ke 20.30–22, la 15–18, su 18–19. Rajakylän koulu: pe 17–18. Pähkinärinteen koulu: pe–su 20–22. Kilterin koulu, Myyrmäki: pe 19.30–21.30, su 18–20. Harrastukset ovat avoimia ja maksuttomia lapsille ja nuorille.'],['Neuvontapalvelut','Monikielinen neuvonta toimii ajanvarauksella. Varaa aika: info@vantaayhdessary.fi tai 046 587 0831 / 046 844 2177.'],['Yhteinen pöytä – ruokajakelu','Vanhan ohjelman mukaan tiistaisin toimintakeskuksessa klo 11–14. Varmista jakelun ajankohta etukäteen.'],['Aikuisten liikuntaryhmät','Naisten kuntosaliryhmät: sunnuntaisin Myyrmäessä, vanhan ohjelman aikaväli 12–20. Miesten palloilukerho: perjantaisin–sunnuntaisin klo 19–22. Lisätiedot ja ilmoittautuminen: 046 844 2177.']]},
-'yhteystiedot':{tag:'OLL AAN YHTEYDESSÄ'.replace('OLL AAN','OLLAAN'),title:'Tervetuloa juttelemaan.',intro:'Haluatko mukaan toimintaan, tarvitsetko neuvontaa tai onko sinulla yhteistyöidea? Ota meihin yhteyttä.',sections:[['Vieraile luonamme','Jönsaksentie 6 A 11, 01600 Vantaa. Myyräncolo – Myyrinpuhos, Myyrmäki. Sovi vierailusta etukäteen.'],['Soita meille','046 587 0831 · 046 844 2177'],['Kirjoita meille','info@vantaayhdessary.fi']]}}
-export function generateStaticParams(){return Object.keys(pages).map(slug=>({slug}))}
-export default async function Page({params}){const {slug}=await params;const p=pages[slug];if(!p)notFound();return <><Header/><main><section className="page-intro"><div className="eyebrow">{p.tag}</div><h1>{p.title}</h1><p>{p.intro}</p></section><section className="content-section">{p.sections.map(([title,text])=><article key={title}><h2>{title}</h2><p>{text}</p></article>)}{slug === 'yhteystiedot' && <article><h2>Henkilökunta</h2><h3>Mohamed Omar</h3><a className="text-link" href="mailto:mohamed.omar@vantaayhdessary.fi">mohamed.omar@vantaayhdessary.fi</a></article>}<div className="actions"><a className="button" href="mailto:info@vantaayhdessary.fi">Lähetä sähköpostia ↗</a><a className="text-link" href="tel:+358465870831">Soita 046 587 0831 →</a></div></section></main><Footer/></>}
-
-
+import { notFound } from "next/navigation";
+import { Header, Footer } from "../components";
+const pages = {
+  "tietoa-meista": {
+    tag: "MEIDÄN YHTEISÖMME",
+    title: "Vantaa kuuluu meille kaikille.",
+    intro:
+      "Hyvinvoivat perheet ja yhteisöllinen Vantaa — sitä varten olemme olemassa.",
+    sections: [
+      [
+        "Tietoa meistä",
+        "Vantaa yhdessä ry on vuoden 2018 alussa perustettu poliittisesti ja uskonnollisesti sitoutumaton yhdistys. Edistämme monikulttuurisen kaupungin asukkaiden hyvinvointia ja osallisuutta.",
+      ],
+      [
+        "Tarkoituksemme",
+        "Tuemme maahanmuuttajien kotoutumista suomalaiseen yhteiskuntaan sekä oman kulttuurin ja kielen säilyttämistä. Edistämme kulttuurien välistä yhteistyötä, kohtaamista ja vuorovaikutusta.",
+      ],
+      [
+        "Arvomme",
+        "Yhteisölähtöisyys ja yhdenvertaisuus ohjaavat toimintaamme. Tuemme erityisesti lapsiperheiden ja nuorten osallisuutta uudessa kotimaassa.",
+      ],
+    ],
+  },
+  toiminta: {
+    tag: "YHDESSÄ TEKEMISEN ILO",
+    title: "Löydä oma tapasi osallistua.",
+    intro:
+      "Kohtaamisia, liikuntaa ja tukea arkeen. Toimintamme on tarkoitettu eri-ikäisille vantaalaisille.",
+    sections: [
+      [
+        "Toimintakeskus",
+        "Toiminta- ja kohtaamiskeskuksemme sijaitsee Myyräncolon kulttuuritalon toisessa kerroksessa Länsi-Vantaalla. Se on vapaa-ajan olohuone ja kohtaamispaikka kaikenikäisille. Järjestämme tapahtumia ja työpajoja sekä tarjoamme monikielistä ohjausta ja neuvontaa.",
+      ],
+      [
+        "Jalkautuva nuorisotyö",
+        "Olemme turvallisia, läsnä olevia aikuisia nuorten arjessa. Tavoitteenamme on ehkäistä syrjäytymistä ja häiriökäyttäytymistä. Teemme yhteistyötä alueellisen nuorisotyön, kirjastojen, kauppakeskusten ja muiden järjestöjen kanssa.",
+      ],
+      [
+        "Matalan kynnyksen harrastustoiminta",
+        "Mahdollistamme lapsille ja nuorille maksutonta harrastamista. Tarjoamme myös aikuisten harrasteliikuntaa, kuten naisten kuntosaliryhmiä ja miesten palloilukerhoja. Ota yhteyttä ja kysy tämänhetkisistä ryhmistä.",
+      ],
+    ],
+  },
+  toimintakalenteri: {
+    tag: "TERVETULOA MUKAAN",
+    title: "Yhteistä tekemistä viikkoon.",
+    intro:
+      "Alla on vanhalta sivustolta siirretty ohjelma. Ajat voivat olla muuttuneet — varmista ajantasainen aikataulu yhdistykseltä ennen osallistumista.",
+    sections: [
+      [
+        "Toimintakeskus",
+        "Jönsaksentie 6 A, 2. kerros, 01600 Vantaa. Vanhan sivuston aukioloajat: ma–pe 16.30–22, la–su 14–22.",
+      ],
+      [
+        "Lasten ja nuorten liikunta",
+        "Hakunila, Lehtikuusen koulu: pe 21–22, la 18–19, su 19–21. Länsimäen koulu: ke 20.30–22, la 15–18, su 18–19. Rajakylän koulu: pe 17–18. Pähkinärinteen koulu: pe–su 20–22. Kilterin koulu, Myyrmäki: pe 19.30–21.30, su 18–20. Harrastukset ovat avoimia ja maksuttomia lapsille ja nuorille.",
+      ],
+      [
+        "Neuvontapalvelut",
+        "Monikielinen neuvonta toimii ajanvarauksella. Varaa aika: info@vantaayhdessary.fi tai 046 587 0831 / 046 844 2177.",
+      ],
+      [
+        "Yhteinen pöytä – ruokajakelu",
+        "Vanhan ohjelman mukaan tiistaisin toimintakeskuksessa klo 11–14. Varmista jakelun ajankohta etukäteen.",
+      ],
+      [
+        "Aikuisten liikuntaryhmät",
+        "Naisten kuntosaliryhmät: sunnuntaisin Myyrmäessä, vanhan ohjelman aikaväli 12–20. Miesten palloilukerho: perjantaisin–sunnuntaisin klo 19–22. Lisätiedot ja ilmoittautuminen: 046 844 2177.",
+      ],
+    ],
+  },
+  yhteystiedot: {
+    tag: "OLL AAN YHTEYDESSÄ".replace("OLL AAN", "OLLAAN"),
+    title: "Tervetuloa juttelemaan.",
+    intro:
+      "Haluatko mukaan toimintaan, tarvitsetko neuvontaa tai onko sinulla yhteistyöidea? Ota meihin yhteyttä.",
+    sections: [
+      [
+        "Vieraile luonamme",
+        "Jönsaksentie 6 A 11, 01600 Vantaa. Myyräncolo – Myyrinpuhos, Myyrmäki. Sovi vierailusta etukäteen.",
+      ],
+      ["Soita meille", "046 587 0831 · 046 844 2177"],
+      ["Kirjoita meille", "info@vantaayhdessary.fi"],
+    ],
+  },
+};
+export function generateStaticParams() {
+  return Object.keys(pages).map((slug) => ({ slug }));
+}
+export default async function Page({ params }) {
+  const { slug } = await params;
+  const p = pages[slug];
+  if (!p) notFound();
+  return (
+    <>
+      <Header />
+      <main>
+        <section className="page-intro">
+          <div className="eyebrow">{p.tag}</div>
+          <h1>{p.title}</h1>
+          <p>{p.intro}</p>
+        </section>
+        <section className="content-section">
+          {p.sections.map(([title, text]) => (
+            <article key={title}>
+              <h2>{title}</h2>
+              <p>{text}</p>
+            </article>
+          ))}
+          {slug === "yhteystiedot" && (
+            <article>
+              <h2>Henkilökunta</h2>
+              <h3>Mohamed Omar</h3>
+              <a
+                className="text-link"
+                href="mailto:mohamed.omar@vantaayhdessary.fi"
+              >
+                mohamed.omar@vantaayhdessary.fi
+              </a>
+            </article>
+          )}
+          <div className="actions">
+            <a className="button" href="mailto:info@vantaayhdessary.fi">
+              Lähetä sähköpostia ↗
+            </a>
+            <a className="text-link" href="tel:+358465870831">
+              Soita 046 587 0831 →
+            </a>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
