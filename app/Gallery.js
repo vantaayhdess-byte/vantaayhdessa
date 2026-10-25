@@ -50,7 +50,6 @@ export default function Gallery({ photos, strip = false }) {
     !hovering &&
     inView &&
     pageVisible &&
-    !reducedMotion &&
     active === null &&
     positions.length > 1;
 
@@ -63,7 +62,10 @@ export default function Gallery({ photos, strip = false }) {
       setCurrent(nearestStop(element, stops));
     };
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateMotion = () => setReducedMotion(motion.matches);
+    const updateMotion = () => {
+      setReducedMotion(motion.matches);
+      if (motion.matches) setPaused(true);
+    };
     const updateVisibility = () => setPageVisible(!document.hidden);
     const resize = new ResizeObserver(measure);
     const intersection = new IntersectionObserver(
@@ -92,10 +94,13 @@ export default function Gallery({ photos, strip = false }) {
       if (!element) return;
       const stops = scrollStops(element);
       const next = (nearestStop(element, stops) + 1) % stops.length;
-      element.scrollTo({ left: stops[next], behavior: "smooth" });
+      element.scrollTo({
+        left: stops[next],
+        behavior: reducedMotion ? "instant" : "smooth",
+      });
     }, AUTOPLAY_DELAY);
     return () => window.clearInterval(timer);
-  }, [playing]);
+  }, [playing, reducedMotion]);
 
   function updateScroll() {
     const element = track.current;
@@ -130,8 +135,14 @@ export default function Gallery({ photos, strip = false }) {
     <div
       className={strip ? "gallery gallery-strip" : "gallery"}
       data-autoplay={strip ? String(playing) : undefined}
-      onMouseEnter={strip ? () => setHovering(true) : undefined}
-      onMouseLeave={strip ? () => setHovering(false) : undefined}
+      onPointerEnter={
+        strip
+          ? (event) => {
+              if (event.pointerType === "mouse") setHovering(true);
+            }
+          : undefined
+      }
+      onPointerLeave={strip ? () => setHovering(false) : undefined}
       onFocusCapture={
         strip
           ? (event) => {
@@ -151,15 +162,17 @@ export default function Gallery({ photos, strip = false }) {
             <button
               type="button"
               className="carousel-pause"
-              disabled={reducedMotion}
               aria-label={
                 paused
                   ? "Käynnistä automaattinen vaihto"
                   : "Pysäytä automaattinen vaihto"
               }
-              onClick={() => setPaused((value) => !value)}
+              onClick={() => {
+                setPaused((value) => !value);
+                setHovering(false);
+              }}
             >
-              {reducedMotion ? "Vaihto pois" : paused ? "▶ Jatka" : "Ⅱ Tauko"}
+              {paused ? "▶ Jatka" : "Ⅱ Tauko"}
             </button>
             <button
               type="button"
