@@ -34,6 +34,8 @@ export default function Gallery({ photos, strip = false }) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [hovering, setHovering] = useState(false);
+  const [touching, setTouching] = useState(false);
+  const [interaction, setInteraction] = useState(0);
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -48,6 +50,7 @@ export default function Gallery({ photos, strip = false }) {
     strip &&
     !paused &&
     !hovering &&
+    !touching &&
     inView &&
     pageVisible &&
     active === null &&
@@ -64,7 +67,6 @@ export default function Gallery({ photos, strip = false }) {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMotion = () => {
       setReducedMotion(motion.matches);
-      if (motion.matches) setPaused(true);
     };
     const updateVisibility = () => setPageVisible(!document.hidden);
     const resize = new ResizeObserver(measure);
@@ -100,14 +102,14 @@ export default function Gallery({ photos, strip = false }) {
       });
     }, AUTOPLAY_DELAY);
     return () => window.clearInterval(timer);
-  }, [playing, reducedMotion]);
+  }, [playing, reducedMotion, interaction]);
 
   function updateScroll() {
     const element = track.current;
     if (element) setCurrent(nearestStop(element, scrollStops(element)));
   }
   function goTo(index) {
-    setPaused(true);
+    setInteraction((value) => value + 1);
     track.current?.scrollTo({
       left: positions[index],
       behavior: reducedMotion ? "instant" : "smooth",
@@ -148,7 +150,8 @@ export default function Gallery({ photos, strip = false }) {
           ? (event) => {
               if (
                 !event.target.closest(".carousel-pause") &&
-                !event.currentTarget.contains(event.relatedTarget)
+                !event.currentTarget.contains(event.relatedTarget) &&
+                event.target.matches(":focus-visible")
               )
                 setPaused(true);
             }
@@ -218,7 +221,10 @@ export default function Gallery({ photos, strip = false }) {
         id={strip ? "home-photo-track" : undefined}
         className={strip ? "photo-track" : "gallery-grid"}
         onScroll={strip ? updateScroll : undefined}
-        onPointerDown={strip ? () => setPaused(true) : undefined}
+        onPointerDown={strip ? () => setTouching(true) : undefined}
+        onPointerUp={strip ? () => setTouching(false) : undefined}
+        onPointerCancel={strip ? () => setTouching(false) : undefined}
+        onLostPointerCapture={strip ? () => setTouching(false) : undefined}
         tabIndex={strip ? 0 : undefined}
         role={strip ? "region" : undefined}
         aria-label={strip ? "Kuusi kuvaa yhdistyksen toiminnasta" : undefined}
