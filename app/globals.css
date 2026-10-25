@@ -1169,3 +1169,8 @@ button:focus-visible,
     gap: 24px;
   }
 }
+
+/* Keep banner text readable while the selected photo loads. */
+.hero {
+  background-color: #102431;
+}

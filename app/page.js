@@ -2,17 +2,17 @@ import { Header, Footer, services } from "./components";
 import Photo from "./Photo";
 import Gallery from "./Gallery";
 import photos from "./photos.json";
+import RandomHero from "./RandomHero";
 export default function Home() {
   return (
     <>
       <Header />
       <main>
         <section className="hero">
-          <Photo
-            className="hero-background"
-            photo={photos.find((p) => p.id === "community")}
-            sizes="100vw"
-            eager
+          <RandomHero
+            photos={["community", "outdoors", "garden", "meeting-02"].map(
+              (id) => photos.find((photo) => photo.id === id),
+            )}
           />
           <div className="hero-shade" />
           <div className="hero-copy">
