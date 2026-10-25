@@ -10,5 +10,6 @@ Before publishing: confirm all contact details, street address, activity times, 
 
 ## Photo gallery
 
-The gallery is at /kuvagalleria, with category filters and a native dialog for enlarged photos. The homepage has a six-photo, swipeable scroll-snap strip with keyboard and arrow controls. No slider dependency or autoplay is used. Photos are served as responsive static WebP files (480, 960 and up to 1440 pixels), with native lazy loading; large photos load only when opened. Originals remain under public/legacy-media. To regenerate the optimized files and manifest, run: node scripts/prepare-media.cjs (uses the sharp package included with Next.js).
+The gallery is at /kuvagalleria, with category filters and a native dialog for enlarged photos. The homepage has a six-photo, swipeable scroll-snap strip with keyboard and arrow controls. No slider dependency is used. The homepage strip advances every 4.5 seconds while visible, with dot navigation and pause/resume controls. Automatic movement pauses on hover, manual interaction, open photo dialogs, hidden browser tabs, and reduced-motion preferences. Photos are served as responsive static WebP files (480, 960 and up to 1440 pixels), with native lazy loading; large photos load only when opened. Originals remain under public/legacy-media. To regenerate the optimized files and manifest, run: node scripts/prepare-media.cjs (uses the sharp package included with Next.js).
+
 

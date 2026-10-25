@@ -1174,3 +1174,57 @@ button:focus-visible,
 .hero {
   background-color: #102431;
 }
+/* Native carousel with dots instead of a visible scrollbar. */
+.photo-track {
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+.photo-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 18px;
+}
+.carousel-dots button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.carousel-dots button span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #a8bcc8;
+}
+.carousel-dots button[aria-current="true"] span {
+  background: var(--blue);
+  width: 11px;
+  height: 11px;
+}
+.gallery-arrows .carousel-pause {
+  min-width: 100px;
+  font:
+    600 15px Arial,
+    sans-serif;
+  padding: 0 12px;
+}
+@media (max-width: 600px) {
+  .gallery-strip .gallery-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .carousel-dots {
+    margin-top: 10px;
+  }
+}

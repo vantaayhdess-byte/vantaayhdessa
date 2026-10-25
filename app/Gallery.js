@@ -1,13 +1,42 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Photo from "./Photo";
+
+const AUTOPLAY_DELAY = 4500;
+
+// Stop positions match the visible cards: three on desktop, one on mobile.
+function scrollStops(element) {
+  if (!element?.firstElementChild) return [0];
+  const maximum = Math.max(0, element.scrollWidth - element.clientWidth);
+  const first = element.firstElementChild.offsetLeft;
+  return [...element.children]
+    .map((child) => Math.min(maximum, child.offsetLeft - first))
+    .filter(
+      (position, index, all) => index === 0 || position - all[index - 1] > 4,
+    );
+}
+function nearestStop(element, stops) {
+  return stops.reduce(
+    (best, position, index) =>
+      Math.abs(position - element.scrollLeft) <
+      Math.abs(stops[best] - element.scrollLeft)
+        ? index
+        : best,
+    0,
+  );
+}
 
 export default function Gallery({ photos, strip = false }) {
   const [category, setCategory] = useState("Kaikki");
   const [active, setActive] = useState(null);
-  const [canGoBack, setCanGoBack] = useState(false);
-  const [canGoForward, setCanGoForward] = useState(true);
+  const [positions, setPositions] = useState([0]);
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [pageVisible, setPageVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const track = useRef(null);
   const dialog = useRef(null);
   const visible =
@@ -15,23 +44,77 @@ export default function Gallery({ photos, strip = false }) {
       ? photos
       : photos.filter((p) => p.category === category);
   const selected = active === null ? null : visible[active];
+  const playing =
+    strip &&
+    !paused &&
+    !hovering &&
+    inView &&
+    pageVisible &&
+    !reducedMotion &&
+    active === null &&
+    positions.length > 1;
+
+  useEffect(() => {
+    if (!strip || !track.current) return;
+    const element = track.current;
+    const measure = () => {
+      const stops = scrollStops(element);
+      setPositions(stops);
+      setCurrent(nearestStop(element, stops));
+    };
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotion = () => setReducedMotion(motion.matches);
+    const updateVisibility = () => setPageVisible(!document.hidden);
+    const resize = new ResizeObserver(measure);
+    const intersection = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+    resize.observe(element);
+    intersection.observe(element);
+    motion.addEventListener("change", updateMotion);
+    document.addEventListener("visibilitychange", updateVisibility);
+    measure();
+    updateMotion();
+    updateVisibility();
+    return () => {
+      resize.disconnect();
+      intersection.disconnect();
+      motion.removeEventListener("change", updateMotion);
+      document.removeEventListener("visibilitychange", updateVisibility);
+    };
+  }, [strip, photos.length]);
+
+  useEffect(() => {
+    if (!playing) return;
+    const timer = window.setInterval(() => {
+      const element = track.current;
+      if (!element) return;
+      const stops = scrollStops(element);
+      const next = (nearestStop(element, stops) + 1) % stops.length;
+      element.scrollTo({ left: stops[next], behavior: "smooth" });
+    }, AUTOPLAY_DELAY);
+    return () => window.clearInterval(timer);
+  }, [playing]);
 
   function updateScroll() {
-    const el = track.current;
-    if (!el) return;
-    setCanGoBack(el.scrollLeft > 4);
-    setCanGoForward(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    const element = track.current;
+    if (element) setCurrent(nearestStop(element, scrollStops(element)));
+  }
+  function goTo(index) {
+    setPaused(true);
+    track.current?.scrollTo({
+      left: positions[index],
+      behavior: reducedMotion ? "instant" : "smooth",
+    });
   }
   function move(direction) {
-    const el = track.current;
-    if (!el) return;
-    el.scrollBy({
-      left:
-        direction * (el.firstElementChild.getBoundingClientRect().width + 24),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+    const element = track.current;
+    if (!element) return;
+    const stops = scrollStops(element);
+    goTo(
+      (nearestStop(element, stops) + direction + stops.length) % stops.length,
+    );
   }
   function open(index) {
     setActive(index);
@@ -44,16 +127,44 @@ export default function Gallery({ photos, strip = false }) {
     setActive((index) => (index + direction + visible.length) % visible.length);
   }
   return (
-    <div className={strip ? "gallery gallery-strip" : "gallery"}>
+    <div
+      className={strip ? "gallery gallery-strip" : "gallery"}
+      data-autoplay={strip ? String(playing) : undefined}
+      onMouseEnter={strip ? () => setHovering(true) : undefined}
+      onMouseLeave={strip ? () => setHovering(false) : undefined}
+      onFocusCapture={
+        strip
+          ? (event) => {
+              if (
+                !event.target.closest(".carousel-pause") &&
+                !event.currentTarget.contains(event.relatedTarget)
+              )
+                setPaused(true);
+            }
+          : undefined
+      }
+    >
       {strip ? (
         <div className="gallery-toolbar">
-          <p>Pyyhkäise kuvia tai käytä nuolia.</p>
+          <p>Kuvat vaihtuvat automaattisesti. Voit myös pyyhkäistä.</p>
           <div className="gallery-arrows">
+            <button
+              type="button"
+              className="carousel-pause"
+              disabled={reducedMotion}
+              aria-label={
+                paused
+                  ? "Käynnistä automaattinen vaihto"
+                  : "Pysäytä automaattinen vaihto"
+              }
+              onClick={() => setPaused((value) => !value)}
+            >
+              {reducedMotion ? "Vaihto pois" : paused ? "▶ Jatka" : "Ⅱ Tauko"}
+            </button>
             <button
               type="button"
               aria-label="Edelliset kuvat"
               aria-controls="home-photo-track"
-              disabled={!canGoBack}
               onClick={() => move(-1)}
             >
               ←
@@ -62,7 +173,6 @@ export default function Gallery({ photos, strip = false }) {
               type="button"
               aria-label="Seuraavat kuvat"
               aria-controls="home-photo-track"
-              disabled={!canGoForward}
               onClick={() => move(1)}
             >
               →
@@ -95,6 +205,7 @@ export default function Gallery({ photos, strip = false }) {
         id={strip ? "home-photo-track" : undefined}
         className={strip ? "photo-track" : "gallery-grid"}
         onScroll={strip ? updateScroll : undefined}
+        onPointerDown={strip ? () => setPaused(true) : undefined}
         tabIndex={strip ? 0 : undefined}
         role={strip ? "region" : undefined}
         aria-label={strip ? "Kuusi kuvaa yhdistyksen toiminnasta" : undefined}
@@ -131,6 +242,26 @@ export default function Gallery({ photos, strip = false }) {
           </button>
         ))}
       </div>
+      {strip && positions.length > 1 && (
+        <div
+          className="carousel-dots"
+          role="group"
+          aria-label="Valitse kuvaryhmä"
+        >
+          {positions.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={"Siirry kuvaryhmään " + (index + 1)}
+              aria-controls="home-photo-track"
+              aria-current={current === index ? "true" : undefined}
+              onClick={() => goTo(index)}
+            >
+              <span aria-hidden="true" />
+            </button>
+          ))}
+        </div>
+      )}
       <dialog
         ref={dialog}
         className="photo-dialog"
