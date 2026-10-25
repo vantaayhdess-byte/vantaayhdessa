@@ -38,7 +38,6 @@ export default function Gallery({ photos, strip = false }) {
   const [interaction, setInteraction] = useState(0);
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
-  const [reducedMotion, setReducedMotion] = useState(false);
   const track = useRef(null);
   const dialog = useRef(null);
   const visible =
@@ -64,10 +63,6 @@ export default function Gallery({ photos, strip = false }) {
       setPositions(stops);
       setCurrent(nearestStop(element, stops));
     };
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateMotion = () => {
-      setReducedMotion(motion.matches);
-    };
     const updateVisibility = () => setPageVisible(!document.hidden);
     const resize = new ResizeObserver(measure);
     const intersection = new IntersectionObserver(
@@ -76,15 +71,12 @@ export default function Gallery({ photos, strip = false }) {
     );
     resize.observe(element);
     intersection.observe(element);
-    motion.addEventListener("change", updateMotion);
     document.addEventListener("visibilitychange", updateVisibility);
     measure();
-    updateMotion();
     updateVisibility();
     return () => {
       resize.disconnect();
       intersection.disconnect();
-      motion.removeEventListener("change", updateMotion);
       document.removeEventListener("visibilitychange", updateVisibility);
     };
   }, [strip, photos.length]);
@@ -98,11 +90,11 @@ export default function Gallery({ photos, strip = false }) {
       const next = (nearestStop(element, stops) + 1) % stops.length;
       element.scrollTo({
         left: stops[next],
-        behavior: reducedMotion ? "instant" : "smooth",
+        behavior: "smooth",
       });
     }, AUTOPLAY_DELAY);
     return () => window.clearInterval(timer);
-  }, [playing, reducedMotion, interaction]);
+  }, [playing, interaction]);
 
   function updateScroll() {
     const element = track.current;
@@ -112,7 +104,7 @@ export default function Gallery({ photos, strip = false }) {
     setInteraction((value) => value + 1);
     track.current?.scrollTo({
       left: positions[index],
-      behavior: reducedMotion ? "instant" : "smooth",
+      behavior: "smooth",
     });
   }
   function move(direction) {
