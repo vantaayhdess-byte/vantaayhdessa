@@ -6,6 +6,8 @@ function Links() {
       <a href="/toiminta">Toiminta</a>
       <a href="/toimintakalenteri">Toimintakalenteri</a>
       <a href="/kuvagalleria">Kuvagalleria</a>
+      
+      
       <a href="/yhteystiedot">Yhteystiedot</a>
     </>
   );
@@ -68,13 +70,14 @@ export function Footer() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Vantaa yhdessä ry</span>
         <a
-          href="https://www.facebook.com/somfin.ry"
+          href="https://www.facebook.com/vantaayhdessä"
           target="_blank"
           rel="noreferrer"
         >
           Facebook ↗
         </a>
-        <span>Jönsaksentie 6, 01600 Vantaa</span>
+        <span>Jönsaksentie 6
+       ], 01600 Vantaa</span>
       </div>
     </footer>
   );

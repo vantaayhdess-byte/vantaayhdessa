@@ -1,0 +1,155 @@
+SOO KOOBIDDA CHATKA — VANTAA YHDESSÄ
+====================================
+
+1. MASHRUUCA IYO CINWAANNADA
+Folderka Windows: C:\Users\qoran\Documents\allapps\vantaayhdessa
+Webka rasmiga ah: https://www.vantaayhdessary.fi
+Tijaabada gudaha kombiyuutarka: http://localhost:3000
+GitHub: https://github.com/vantaayhdess-byte/vantaayhdessa
+Mashruucu waa Next.js. GitHub iyo Vercel waxay leeyihiin akoon u gaar ah Vantaa yhdessä.
+
+2. FAYLASHA UGU MUHIIMSAN
+app/page.js = bogga hore.
+app/components.js = header, logo, menu, footer iyo xogta kaadhadhka adeegyada.
+app/globals.css = midab, font, cabbir iyo qaabka mobile/desktop.
+app/layout.js = dejinta guud ee bogagga.
+app/[slug]/page.js = Meistä, Toiminta, Toimintakalenteri iyo Yhteystiedot.
+app/kuvagalleria/page.js = bogga sawirrada iyo fiidiyowyada.
+app/uutiset/page.js = bogga cusub ee Uutiset / Wararka.
+app/announcements.js = qoraalka, sawirrada iyo hide/show ee munaasabadaha iyo warka gaaban.
+app/HomeAnnouncements.js = qaabka munaasabadaha loo soo bandhigo.
+app/photos.json = liiska sawirrada iyo kooxahooda.
+app/videos.json = liiska fiidiyowyada.
+app/Gallery.js = gallery-ga iyo sawirrada si otomaatig ah u socda.
+app/RandomHero.js = sawirka random-ka ah ee banner-ka bogga hore.
+public/photos = sawirrada gallery-ga iyo cabbirrada WebP.
+public/images = sawirrada aad adigu ku darto bog ama munaasabad.
+node_modules iyo .next = faylal barnaamijku sameeyo; gacanta ha ku beddelin.
+.git = taariikhda iyo xiriirka Git; ha tirtirin.
+
+Hagayaal kale oo mashruuca ku jira:
+HAGAHA-WEBKA.md = sharaxaad iyo tusaale bog cusub.
+SAWIRRADA.md = sawirrada iyo magacyadooda.
+MUNAASABADAHA.md = munaasabadaha iyo hide/show.
+
+3. HABKA SHAQADA MAALIN KASTA
+VS Code ku fur folderka mashruuca.
+Terminal-ka gudaha folderka ku qor:
+
+npm run dev
+
+Fur http://localhost:3000
+Wax beddel, Ctrl + S ku kaydi, kadib browser-ka ka eeg.
+Ctrl + F = ka raadi faylka; Ctrl + Shift + F = ka raadi mashruuca oo dhan.
+Windows VS Code: Alt + Shift + F = hagaaji safafka koodhka.
+Isbeddelka localhost ma beddelo webka rasmiga ah ilaa aad push samayso.
+
+4. BOG CUSUB IYO MENU
+Tusaale: app/uutiset/page.js wuxuu noqdaa /uutiset.
+Magaca folderka ka dhig xarfo yaryar. Uutiset iyo uutiset ha isku khaldin.
+Faylku waa inuu la yiraahdaa page.js.
+Boggu wuxuu isticmaali karaa Header iyo Footer sidan:
+
+import { Header, Footer } from "../components";
+
+Menu-ga: app/components.js, gudaha function Links(), ku dar:
+
+<a href="/uutiset">Uutiset</a>
+
+Hal mar oo Links lagu daro wuxuu ka muuqanayaa desktop iyo mobile labadaba.
+Haddii boggu yiraahdo Page could not be found, hubi folderka, page.js iyo href inay is waafaqaan.
+Markaad tusaale koodh koobiyaynayso, ha koobiyayn calaamadaha sanduuqa ama erayga jsx ee korkiisa.
+Qalad ah jsx is not defined wuxuu ka dhigan yahay in jsx si khaldan faylka loogu dhex qoray.
+
+5. SAWIRKA BANNER-KA BOGGA UUTISET
+Sawirka: public/images/uutiset.webp
+Koodhka waddadiisa: /images/uutiset.webp — public laguma qoro.
+Kala horreynta bogga:
+Header → sawirka banner-ka → cinwaanka iyo hordhaca → faahfaahinta → Footer.
+Sawirka keliya isticmaal; backgroundImage-kii hore ka saar haddii laba sawir muuqdaan.
+Cinwaanka ha ku celin laba section oo page-intro ah.
+objectFit: "cover" = buuxi meesha, geesaha qaar waa la goyn karaa.
+objectFit: "contain" = sawirka oo dhan muuji.
+<span>...</span> wuxuu qaabka cinwaannada hadda jira u sameeyaa qayb buluug ah.
+
+6. MUNAASABADO IYO WAR GAABAN
+Fur app/announcements.js.
+visibility: "hide" = qarsoon.
+visibility: "show" = muuqda.
+Labada munaasabad iyo breakingNews mid kasta si gooni ah u maamul.
+title = cinwaanka madow; titleAccent = qaybta buluugga ah.
+image = waddada sawirka, tusaale /images/xaflad.jpg.
+paragraphs = qoraallada; when = waqtiga; where = goobta.
+Bog maamul iyo login gaar ah looma baahna: faylka beddel, localhost ka eeg, kadib deploy.
+
+7. GIT IYO DEPLOY
+Marka beddelku kuu dhammaado:
+
+git status
+
+Ku dar faylasha aad rabto. Tusaale:
+
+git add app/uutiset/page.js app/components.js public/images/uutiset.webp
+git commit -m "Ku dar bogga wararka"
+git push origin main
+
+git add . wuxuu ku daraa dhammaan isbeddellada; marka hore git status ku hubi.
+Ha ku darin dejinta editor-ka .idea si aan ula kac ahayn.
+Sax: git commit -m "Qoraalka beddelka"
+Sax: git push origin main
+Vercel wuxuu push-ka GitHub ka bilaabaa deployment; sug inuu Ready noqdo.
+Kadib hubi https://www.vantaayhdessary.fi
+
+8. KOMBIYUUTAR CUSUB — WINDOWS
+Waxaa loo baahan yahay VS Code, Node.js LTS iyo Git.
+Terminal-ka ku hubi:
+
+node -v
+npm -v
+git --version
+
+Haddii aysan rakibnayn, Windows Terminal ku qor:
+
+winget install --id OpenJS.NodeJS.LTS --exact
+winget install --id Git.Git --exact
+
+Akhri oo aqbal heshiisyada haddii aad oggolaatay. Sug rakibidda.
+VS Code xir oo dib u fur, kadib noocyada mar kale hubi.
+Haddii winget uusan shaqayn, isticmaal rakibayaasha rasmiga ah:
+https://nodejs.org
+https://git-scm.com
+Haddii PowerShell yiraahdo running scripts is disabled, VS Code terminal-ka u dooro Command Prompt oo amarka ku celi.
+
+9. KOMBIYUUTAR CUSUB — MAC
+Node.js LTS ka soo dejiso https://nodejs.org; dooro macOS .pkg oo rakib.
+Terminal cusub ku hubi node -v iyo npm -v.
+Ku qor git --version; haddii Command Line Tools lagu weydiiyo, dooro Install.
+VS Code ku fur folderka mashruuca.
+
+10. USB IYO BILAABIDDA MASHRUUCA KOMBIYUUTARKA CUSUB
+Marka hore kombiyuutarka hore ka kaydi dhammaan faylasha.
+Folderka mashruuca oo dhan ka koobi USB-ga una rar kombiyuutarka cusub.
+Hubi in folderka qarsoon ee .git uu la socdo.
+Ha soo guurin node_modules iyo .next; gaar ahaan Windows ilaa Mac. Haddii ay nuqulka ku jiraan, labadaas oo keliya ka tirtir.
+Terminal-ka folderka mashruuca ku qor:
+
+npm ci
+npm run dev
+
+Fur http://localhost:3000
+GitHub iyo Vercel login looma baahna shaqada localhost.
+Marka git push la samaynayo, GitHub ayaa login ku weydiin kara; isticmaal vantaayhdess-byte.
+Vercel login looma baahna push kasta haddii GitHub uu hore ugu xiran yahay.
+Labada kombiyuutar markaad isu beddelayso, kaydi oo push samee; kan kale ka hubi git status, kadib git pull origin main marka isbeddelladiisa la kaydiyey.
+
+11. DOMAIN-KA RASMIGA AH — HORAY AYUU U SHAQAYNAYAA
+Domainhotelli DNS-kii la dejiyey:
+A: vantaayhdessary.fi. → 216.198.79.1
+CNAME: www → 718196df8738168a.vercel-dns-017.com.
+Vercel: vantaayhdessary.fi wuxuu u gudbaa www.vantaayhdessary.fi.
+Labada domain waxay noqdeen Valid Configuration, webkuna wuu shaqeeyey.
+Wax ka beddel kasta oo webka ah DNS cusub uma baahna.
+Ha beddelin mail, webmail, MX ama nameservers markaad qoraal/sawir cusboonaysiinayso.
+
+TALO UGU MUHIIMSAN
+Hal beddel samee → kaydi → localhost ku hubi → GitHub ku dir → Vercel ka hubi.
