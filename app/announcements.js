@@ -3,7 +3,7 @@
 // Labada qaybood mid kasta si gooni ah ayaa loo shidi karaa.
 
 export const eventAnnouncement = {
-  visibility: "hide",
+  visibility: "show",
   label: "TULEVA TAPAHTUMA",
   title: "Bisha Ramadaan",
   titleAccent: "oo soo dhawaatay", // Qaybta buluugga ah ee cinwaanka.

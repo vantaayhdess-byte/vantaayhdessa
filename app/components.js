@@ -30,7 +30,7 @@ export function Header() {
             alt="Vantaa yhdessä ry"
           />
           <span>
-            Vantaa yhdessä<small>YHTEISÖLLISYYTTÄ EDISTÄMÄSSÄ</small>
+            Vantaa yhdessä ry<small>YHTEISÖLLISYYTTÄ EDISTÄMÄSSÄ</small>
           </span>
         </a>
         <nav className="desktop-nav" aria-label="Päävalikko">
@@ -70,11 +70,18 @@ export function Footer() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Vantaa yhdessä ry</span>
         <a
-          href="https://www.facebook.com/vantaayhdessä"
+          href="https://www.facebook.com/Vantaayhdessa"
           target="_blank"
           rel="noreferrer"
         >
-          Facebook ↗
+          Facebook ↗ 
+        </a>
+        <a
+          href="https://www.instagram.com/vantaayhdessary/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram ↗ 
         </a>
         <span>Jönsaksentie 6
        ], 01600 Vantaa</span>

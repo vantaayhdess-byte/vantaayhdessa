@@ -98,9 +98,9 @@ export default function Home() {
               ↗
             </a>
             <a href="/toimintakalenteri">
-              <span>01</span>
+              <span>02</span>
               <div>
-                <h3>H</h3>
+                <h3>Jalkautuva nuorisotyö ja kerhotoiminta</h3>
                 <p>Lapsille ja nuorille · eri puolilla Vantaata</p>
               </div>
               ↗
@@ -108,7 +108,7 @@ export default function Home() {
             
             
             <a href="/toimintakalenteri">
-              <span>02</span>
+              <span>03</span>
               <div>
                 <h3>Monikielinen neuvonta</h3>
                 <p>Tukea arkeen · ajanvarauksella</p>
@@ -116,7 +116,7 @@ export default function Home() {
               ↗
             </a>
             <a href="/toimintakalenteri">
-              <span>03</span>
+              <span>04</span>
               <div>
                 <h3>Yhteinen pöytä</h3>
                 <p>Ruokajakelu · toimintakeskus</p>
