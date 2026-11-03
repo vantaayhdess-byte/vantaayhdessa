@@ -1228,3 +1228,121 @@ button:focus-visible,
     margin-top: 10px;
   }
 }
+/* Optional event and news blocks; visibility is controlled in announcements.js. */
+.home-announcements {
+  border-bottom: 1px solid #e3ebf0;
+}
+.announcement-event {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.announcement-copy {
+  min-width: 0;
+}
+.announcement-copy h2 {
+  overflow-wrap: anywhere;
+}
+.announcement-image {
+  min-width: 0;
+  height: 370px;
+  background: #eef7fb;
+}
+.announcement-image img {
+  width: 100%;
+  height: 100%;
+}
+.event-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+  margin: 0 0 24px;
+}
+.event-details div {
+  min-width: 0;
+}
+.event-details dt {
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 14px;
+}
+.event-details dd {
+  margin: 3px 0 0;
+  color: var(--ink);
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.breaking-news {
+  max-width: 1200px;
+  margin: 35px auto;
+  padding: 24px 28px;
+  background: #f1f8fc;
+  border-left: 4px solid var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.news-label {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+.news-lines {
+  flex: 1;
+  min-width: 0;
+}
+.news-lines p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.news-lines p:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+.breaking-news .text-link {
+  flex-shrink: 0;
+}
+@media (max-width: 1320px) {
+  .breaking-news {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 800px) {
+  .announcement-event {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .breaking-news {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .announcement-event {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+  .announcement-image {
+    height: 280px;
+  }
+  .breaking-news {
+    margin: 24px 6%;
+    padding: 20px;
+  }
+  .news-lines p {
+    font-size: 17px;
+  }
+}
+
+.announcement-event + .announcement-event {
+  border-top: 1px solid #e3ebf0;
+}

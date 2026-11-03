@@ -6,6 +6,7 @@ function Links() {
       <a href="/toiminta">Toiminta</a>
       <a href="/toimintakalenteri">Toimintakalenteri</a>
       <a href="/kuvagalleria">Kuvagalleria</a>
+      
       <a href="/yhteystiedot">Yhteystiedot</a>
     </>
   );
@@ -74,7 +75,8 @@ export function Footer() {
         >
           Facebook ↗
         </a>
-        <span>Jönsaksentie 6, 01600 Vantaa</span>
+        <span>Jönsaksentie 6
+       ], 01600 Vantaa</span>
       </div>
     </footer>
   );

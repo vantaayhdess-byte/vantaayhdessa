@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#eef7fb"/>
+  <rect x="30" y="30" width="1140" height="740" rx="10" fill="none" stroke="#bdd8e5" stroke-width="3" stroke-dasharray="12 12"/>
+  <g fill="none" stroke="#0781ad" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="510" y="220" width="180" height="160" rx="14"/>
+    <path d="M550 205v35m100-35v35m-140 35h180m-135 40h25m35 0h25m-85 30h25m35 0h25"/>
+  </g>
+  <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif">
+    <text x="600" y="470" font-size="40" font-weight="700" fill="#173b5b">TAPAHTUMAKUVA TÄHÄN</text>
+    <text x="600" y="530" font-size="28" fill="#46535e">event-placeholder.svg</text>
+    <text x="600" y="585" font-size="25" fill="#46535e">Vaihda tähän oma tapahtumakuvasi.</text>
+  </g>
+</svg>

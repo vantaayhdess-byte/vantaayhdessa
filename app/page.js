@@ -3,6 +3,7 @@ import Photo from "./Photo";
 import Gallery from "./Gallery";
 import photos from "./photos.json";
 import RandomHero from "./RandomHero";
+import HomeAnnouncements from "./HomeAnnouncements";
 export default function Home() {
   return (
     <>
@@ -36,6 +37,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <HomeAnnouncements />
         <section className="welcome section">
           <div className="welcome-copy">
             <div className="eyebrow">TERVETULOA MEIDÄN JOUKKOOMME</div>
@@ -67,89 +69,9 @@ export default function Home() {
             <div>Yhteisiä hetkiä. Aitoja kohtaamisia.</div>
           </div>
         </section>
-        <section className="services-section">
-          <div className="section">
-            <div className="section-heading centered">
-              <div className="eyebrow">MITÄ TEEMME</div>
-              <h2>
-                Toimintaa <span>kaikille.</span>
-              </h2>
-              <div className="heading-line" />
-              <p>
-                Olipa toiveenasi uusi harrastus, tukea arkeen tai uusia
-                tuttavuuksia — löydetään sinulle oma paikka.
-              </p>
-            </div>
-            <div className="cards">
-              {services.map((s) => (
-                <a className="card" href="/toiminta" key={s.n}>
-                  <div className="card-image">
-                    <Photo
-                      photo={{
-                        ...photos.find((p) => p.id === s.image),
-                        alt: s.alt,
-                      }}
-                      sizes="(max-width: 800px) 88vw, 380px"
-                    />
-                  </div>
-                  <div className="card-body">
-                    <span className="card-number">{s.n}</span>
-                    <h3>{s.title}</h3>
-                    <p>{s.text}</p>
-                    <span className="read-more">
-                      Lue lisää <b>→</b>
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section
-          className="section home-gallery"
-          aria-labelledby="home-gallery-title"
-        >
-          <div className="gallery-heading">
-            <div>
-              <div className="eyebrow">HETKIÄ MATKAN VARRELTA</div>
-              <h2 id="home-gallery-title">
-                Yhdessä syntyy <span>muistoja.</span>
-              </h2>
-            </div>
-            <a className="text-link" href="/kuvagalleria">
-              Katso kaikki kuvat →
-            </a>
-          </div>
-          <Gallery
-            photos={[
-              "children",
-              "sports",
-              "outdoors",
-              "support",
-              "meeting",
-              "garden",
-            ].map((id) => photos.find((p) => p.id === id))}
-            strip
-          />
-        </section>
-        <section className="values">
-          <div>
-            <strong>Yhdenvertaisuus</strong>
-            <span>Jokainen on tervetullut.</span>
-          </div>
-          <div>
-            <strong>Yhteisöllisyys</strong>
-            <span>Tehdään ja kasvetaan yhdessä.</span>
-          </div>
-          <div>
-            <strong>Osallisuus</strong>
-            <span>Jokaisella on oma ääni.</span>
-          </div>
-          <div>
-            <strong>Hyvinvointi</strong>
-            <span>Tukea arjen eri vaiheisiin.</span>
-          </div>
-        </section>
+        
+       
+        
         <section className="section calendar-preview">
           <div>
             <div className="eyebrow">KOHTAAMISIA ARJESSA</div>
@@ -175,8 +97,16 @@ export default function Home() {
               </div>
               ↗
             </a>
-            <a href="/toimintakalenteri">
+             <a href="/toimintakalenteri">
               <span>02</span>
+              <div>
+                <h3>Kumppanimme</h3>
+                <p>Yhdessä olemme enemmän</p>
+              </div>
+              ↗
+            </a>
+            <a href="/toimintakalenteri">
+              <span>03</span>
               <div>
                 <h3>Monikielinen neuvonta</h3>
                 <p>Tukea arkeen · ajanvarauksella</p>
@@ -184,7 +114,7 @@ export default function Home() {
               ↗
             </a>
             <a href="/toimintakalenteri">
-              <span>03</span>
+              <span>04</span>
               <div>
                 <h3>Yhteinen pöytä</h3>
                 <p>Ruokajakelu · toimintakeskus</p>
