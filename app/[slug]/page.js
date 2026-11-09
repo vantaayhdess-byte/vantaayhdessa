@@ -11,8 +11,7 @@ const pages = {
         "Tietoa meistä",
         "Vantaa yhdessä ry on vuoden 2018 alussa perustettu poliittisesti ja uskonnollisesti sitoutumaton yhdistys. Edistämme monikulttuurisen kaupungin asukkaiden hyvinvointia ja osallisuutta.",
       ],
-      [
-        "Tarkoituksemme",
+      [        "Tarkoituksemme",
         "Tuemme maahanmuuttajien kotoutumista suomalaiseen yhteiskuntaan sekä oman kulttuurin ja kielen säilyttämistä. Edistämme kulttuurien välistä yhteistyötä, kohtaamista ja vuorovaikutusta.",
       ],
       [

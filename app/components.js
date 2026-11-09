@@ -83,8 +83,8 @@ export function Footer() {
         >
           Instagram ↗ 
         </a>
-        <span>Jönsaksentie 6
-       ], 01600 Vantaa</span>
+        <span>Jönsaksentie 6 A
+       11, 01600 Vantaa</span>
       </div>
     </footer>
   );
