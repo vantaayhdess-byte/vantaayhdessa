@@ -57,8 +57,10 @@ export function Footer() {
             className="brand-logo"
             src="/photos/logo.webp"
             alt="Vantaa yhdessä ry"
+            
           />
           <span>Vantaa yhdessä ry</span>
+          
         </a>
         <p>
           Hyvinvoivat perheet.
@@ -74,8 +76,10 @@ export function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Facebook ↗ 
+          
+        SEURAA MEITÄ SOMESSA: Facebook ↗    
         </a>
+        
         <a
           href="https://www.instagram.com/vantaayhdessary/"
           target="_blank"

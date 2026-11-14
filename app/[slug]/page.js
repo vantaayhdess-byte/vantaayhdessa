@@ -9,14 +9,17 @@ const pages = {
     sections: [
       [
         "Tietoa meistä",
-        "Vantaa yhdessä ry on vuoden 2018 alussa perustettu poliittisesti ja uskonnollisesti sitoutumaton yhdistys. Edistämme monikulttuurisen kaupungin asukkaiden hyvinvointia ja osallisuutta.",
+        "Vantaa yhdessä ry on vuoden 2018 alussa perustettu poliittisesti ja uskonnollisesti sitoutumaton yhdistys. Vantaan kaupunki on Suomen monikulttuurisin kunta ja haluamme järjestönä omalta osaltamme edistää kasvavan ja monikulttuuristuvan kaupungin kuntalaisten hyvinvointia ja osallisuutta. ",
       ],
-      [        "Tarkoituksemme",
-        "Tuemme maahanmuuttajien kotoutumista suomalaiseen yhteiskuntaan sekä oman kulttuurin ja kielen säilyttämistä. Edistämme kulttuurien välistä yhteistyötä, kohtaamista ja vuorovaikutusta.",
+      [        "Missio",
+        "Missiomme on edistää yhteisöllisyyttä ja yhdenvertaisuutta, jossa jokaisella on mahdollisuus osallistua, vaikuttaa ja tulla hyväksytyksi omana itsenään.",
+      ],
+      [        "Arvot",
+        "Yhteisölähtöisyys ja yhdenvertaisuus ohjaavat kaikkea toimintaamme.",
       ],
       [
-        "Arvomme",
-        "Yhteisölähtöisyys ja yhdenvertaisuus ohjaavat toimintaamme. Tuemme erityisesti lapsiperheiden ja nuorten osallisuutta uudessa kotimaassa.",
+        "Visio",
+        "Visiomme on hyvinvoivat perheet ja nuoret sekä yhteisöllinen Vantaa, jossa jokainen tuntee kuuluvansa yhteisöön ja tulee kohdatuksi yhdenvertaisesti.",
       ],
     ],
   },
@@ -28,15 +31,15 @@ const pages = {
     sections: [
       [
         "Toimintakeskus",
-        "Toiminta- ja kohtaamiskeskuksemme sijaitsee Myyräncolon kulttuuritalon toisessa kerroksessa Länsi-Vantaalla. Se on vapaa-ajan olohuone ja kohtaamispaikka kaikenikäisille. Järjestämme tapahtumia ja työpajoja sekä tarjoamme monikielistä ohjausta ja neuvontaa.",
+        "Toimintakeskus sijaitsee Länsi-Vantaalla Myyräncolon kulttuuritalon toisessa kerroksessa. Se on kaikenikäisille avoin kohtaamispaikka, jonka tavoitteena on edistää vieraskielisten kuntalaisten hyvinvointia ja osallisuutta. Toimintakeskus tarjoaa monipuolista ja helposti lähestyttävää toimintaa. Se on paikka, jossa voi viettää vapaa-aikaa, tavata uusia ihmisiä ja osallistua yhteiseen tekemiseen. Keskuksessa järjestetään tapahtumia ja työpajoja. Lisäksi tarjolla on monikielistä ohjausta ja neuvontaa maahanmuuttajille. Toiminnan tavoitteena on vahvistaa yhteisöllisyyttä, lisätä ihmisten välistä vuorovaikutusta ja edistää hyvää yhteiseloa.",
       ],
       [
-        "Jalkautuva nuorisotyö",
-        "Olemme turvallisia, läsnä olevia aikuisia nuorten arjessa. Tavoitteenamme on ehkäistä syrjäytymistä ja häiriökäyttäytymistä. Teemme yhteistyötä alueellisen nuorisotyön, kirjastojen, kauppakeskusten ja muiden järjestöjen kanssa.",
+        "Jalkautuva nuorisotyö ja kerhotoiminta",
+        "Nuorisotyöllä ja kerhotoiminnalla ehkäistään syrjäytymistä ja häiriökäyttäytymistä, vahvistetaan lasten ja nuorten osallisuutta ja tarjotaan turvallista, mielekästä tekemistä sekä mahdollisuuksia kasvaa osana yhteisöä.",
       ],
       [
         "Matalan kynnyksen harrastustoiminta",
-        "Mahdollistamme lapsille ja nuorille maksutonta harrastamista. Tarjoamme myös aikuisten harrasteliikuntaa, kuten naisten kuntosaliryhmiä ja miesten palloilukerhoja. Ota yhteyttä ja kysy tämänhetkisistä ryhmistä.",
+        "Harrastusten korkeat kustannukset voivat estää monia maahanmuuttajaperheitä tarjoamasta lapsilleen mahdollisuutta harrastaa. Yhdistyksemme tarjoaa maksutonta ja matalan kynnyksen harrastustoimintaa lapsille, nuorille ja aikuisille. Järjestämme viikoittain lasten ja nuorten liikuntaryhmiä sekä aikuisille esimerkiksi naisten kuntosaliryhmiä ja miesten palloilukerhoja.",
       ],
     ],
   },
@@ -44,7 +47,7 @@ const pages = {
     tag: "TERVETULOA MUKAAN",
     title: "Yhteistä tekemistä viikkoon.",
     intro:
-      "Alla on vanhalta sivustolta siirretty ohjelma. Ajat voivat olla muuttuneet — varmista ajantasainen aikataulu yhdistykseltä ennen osallistumista.",
+      "Toimintakalenteristamme löydät ajantasaiset tiedot toiminnastamme ja aikatauluistamme. Facebook- ja Instagram-sivuillamme jaamme uutisia, tiedotteita sekä kuvia ja videoita yhteisestä tekemisestämme.",
     sections: [
       [
         "Toimintakeskus",
@@ -60,11 +63,16 @@ const pages = {
       ],
       [
         "Yhteinen pöytä – ruokajakelu",
-        "Vanhan ohjelman mukaan tiistaisin toimintakeskuksessa klo 11–14. Varmista jakelun ajankohta etukäteen.",
+        "Ruokajakelu järjestetään tiistaisin toimintakeskuksessa klo 11.00–14.00.",
       ],
       [
         "Aikuisten liikuntaryhmät",
-        "Naisten kuntosaliryhmät: sunnuntaisin Myyrmäessä, vanhan ohjelman aikaväli 12–20. Miesten palloilukerho: perjantaisin–sunnuntaisin klo 19–22. Lisätiedot ja ilmoittautuminen: 046 844 2177.",
+        "Naisten kuntosaliryhmät kokoontuvat sunnuntaisin Myyrmäessä klo 12.00–14.00.  Miesten palloilukerho perjantaisin- sunnuntaisin klo 19.00–22.00. Lisätiedot ja ilmoittautuminen: 📞 046 844 2177",
+      ],
+      [
+        "Kumppanimme",
+        "Teemme tiivistä yhteistyötä eri toimijoiden ja yhdistysten kanssa: Nuorisopalvelut: Nuorten aikuisten toimintaa ke klo 17–20 sekä Tyttöjen illat (Myyrmäen nuorisotilla) kerran kuukaudessa ma klo 17–20. Myyrmäen asukastila: Tyttöjen kerho to klo 17–19.30. Yhteinen pöytä: Ruokajakelu ti klo 11–14. Velmu ry ja Bass Camp Helsinki ry: Nuorten aikuisten toimintaa Skenesalissa ke klo 17–20. Myyrmäen Lobby: Vantaan Kesälavan kulttuuripäivä vuosittain elokuussa. Tusmo ry: Yhteiset tapahtumat ja retket lapsiperheille..",
+        
       ],
     ],
   },
@@ -75,11 +83,11 @@ const pages = {
       "Haluatko mukaan toimintaan, tarvitsetko neuvontaa tai onko sinulla yhteistyöidea? Ota meihin yhteyttä.",
     sections: [
       [
-        "Vieraile luonamme",
+        "Vieraile toimistollamme",
         "Jönsaksentie 6 A 11, 01600 Vantaa. Myyräncolo – Myyrinpuhos, Myyrmäki. Sovi vierailusta etukäteen.",
       ],
-      ["Soita meille", "046 587 0831 · 046 844 2177"],
-      ["Kirjoita meille", "info@vantaayhdessary.fi"],
+      ["Soita meille", "📞 046 587 0831 · 046 844 2177"],
+      ["Kirjoita meille", "📧 info@vantaayhdessary.fi "],
     ],
   },
 };
@@ -110,11 +118,12 @@ export default async function Page({ params }) {
             <article>
               <h2>Henkilökunta</h2>
               <h3>Mohamed Omar</h3>
+              
               <a
                 className="text-link"
                 href="mailto:mohamed.omar@vantaayhdessary.fi"
               >
-                mohamed.omar@vantaayhdessary.fi
+                📧 mohamed.omar@vantaayhdessary.fi
               </a>
             </article>
           )}

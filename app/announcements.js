@@ -35,6 +35,7 @@ export const secondEventAnnouncement = {
   paragraphs: [
     "Halkan ku qor faahfaahinta munaasabadda labaad.",
     "Halkan ku qor sida looga qayb qaadanayo.",
+    
   ],
   image: "/images/event-placeholder.svg",
   imageAlt: "Sharaxaad kooban oo sawirka munaasabadda labaad ah",

@@ -103,10 +103,9 @@ export default function Home() {
                 <h3>Jalkautuva nuorisotyö ja kerhotoiminta</h3>
                 <p>Lapsille ja nuorille · eri puolilla Vantaata</p>
               </div>
+              
               ↗
             </a>
-            
-            
             <a href="/toimintakalenteri">
               <span>03</span>
               <div>
@@ -121,7 +120,14 @@ export default function Home() {
                 <h3>Yhteinen pöytä</h3>
                 <p>Ruokajakelu · toimintakeskus</p>
               </div>
-              
+              ↗
+            </a>
+            <a href="/toimintakalenteri">
+              <span>05</span>
+              <div>
+                <h3>Kumppanimme</h3>
+                <p>Yhteistyö eri toimijoiden ja yhdistysten kanssa</p>
+              </div>
               ↗
             </a>
           </div>

@@ -65,7 +65,7 @@ h3 {
 }
 .topbar {
   background: var(--accent);
-  color: #092e40;
+  color: #02042d;
   padding: 10px max(5%, calc((100vw - 1200px) / 2));
   display: flex;
   justify-content: space-between;
@@ -94,9 +94,9 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 800;
-  color: #075a96;
+  color: #1f5e9d;
   line-height: 1.2;
   white-space: nowrap;
   letter-spacing: -0.8px;
@@ -110,7 +110,7 @@ header {
 .brand small {
   display: block;
   color: #ef540c;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 1px;
   font-weight: 600;
   margin-top: 8px;
